@@ -4,7 +4,8 @@
 
 <h5>Alunos</h5>
 
-<p></p>
+<p>André Gonçalves Oliveira RA: 821158367</p>
+<p>Ederson Paulo Pereira Manoel RA: 821225087</p>
 <p>Enzo Roberto Fernandes Rodrigues RA:822132603</p>
 <p>Enzo Romano Panebianco: 821224441</p>
 <p>Gabriel Souza Dos Santos RA: 821239207</p>

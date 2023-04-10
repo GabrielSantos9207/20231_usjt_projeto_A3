@@ -1,0 +1,27 @@
+{
+  "name": "20231_usjt_projeto_a3",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\"> SoftMusi </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielSantos9207/20231_usjt_projeto_A3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielSantos9207/20231_usjt_projeto_A3/issues"
+  },
+  "homepage": "https://github.com/GabrielSantos9207/20231_usjt_projeto_A3#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

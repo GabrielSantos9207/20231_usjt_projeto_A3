@@ -12,4 +12,4 @@
 <p>Guilherme Farias De Oliveira RA: 821224447</p>
 <p>Gustavo do Prado Gabriel RA:821234228</p>
 
-<p>Para rodas o microsserviço de autenticação é preciso acessar a pasta microsserviço e executar npm install, depois npm star.<p>
+<p>Para rodar o microsserviço de autenticação é preciso acessar a pasta microsserviço e executar npm install, depois npm start.<p>

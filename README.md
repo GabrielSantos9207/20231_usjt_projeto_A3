@@ -11,3 +11,5 @@
 <p>Gabriel Souza Dos Santos RA: 821239207</p>
 <p>Guilherme Farias De Oliveira RA: 821224447</p>
 <p>Gustavo do Prado Gabriel RA:821234228</p>
+
+<p>Para rodas o microsserviço de autenticação é preciso acessar a pasta microsserviço e executar npm install, depois npm star.<p>

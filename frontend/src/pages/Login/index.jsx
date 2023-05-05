@@ -1,15 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import logoIMG from "../../assets/logo.svg";
 import { LayoutComponents } from "../../components/LayoutComponents";
+import { login } from "../../services/api";
 
 export const Login = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  async function logar(e){
+    e.preventDefault()
+    try {
+      await login(email,password)
+      alert('Bem vindo')
+      navigate('/plugins')
+    } catch (error) {
+      alert('Email ou senha incorretos')
+      
+    }
+  }
   return (
     <LayoutComponents>
-      <form className="login-form">
+      <form onSubmit={logar} className="login-form">
         <span className="login-form-title"> Acesse sua conta </span>
 
         <span className="login-form-title">
@@ -37,7 +51,7 @@ export const Login = () => {
         </div>
 
         <div className="container-login-form-btn">
-          <button className="login-form-btn">Login</button>
+          <button type="submit" className="login-form-btn">Login</button>
         </div>
 
         <div className="text-center">

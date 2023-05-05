@@ -1,18 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LayoutComponents } from "../../components/LayoutComponents"
 
 import logoIMG from '../../assets/logo.svg'
+import { cadastro } from "../../services/api";
 
 
 export const Register = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("")
 
+  async function cadastrar(e){
+    e.preventDefault()
+    try {
+      await cadastro(name,email,password)
+      alert('Você está cadastrado')
+      navigate('/login')
+    } catch (error) {
+      alert(`Email: ${email} já está sendo usado`)
+    }
+    
+  }
+
   return (
     <LayoutComponents >
-      <form className="login-form">
+      <form onSubmit={cadastrar} className="login-form">
         <span className="login-form-title"> Criar Conta </span>
 
         <span className="login-form-title">
@@ -22,7 +36,7 @@ export const Register = () => {
         <div className="wrap-input">
           <input
             className={name !== "" ? "has-val input" : "input"}
-            type="email"
+            type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -50,7 +64,7 @@ export const Register = () => {
         </div>
 
         <div className="container-login-form-btn">
-          <button className="login-form-btn">Login</button>
+          <button type="submit" className="login-form-btn">Criar conta</button>
         </div>
 
         <div className="text-center">

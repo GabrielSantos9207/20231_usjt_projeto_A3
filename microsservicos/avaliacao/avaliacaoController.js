@@ -121,7 +121,6 @@ function deletarAvaliacao(req, res) {
 
 async function _getAvaliacoesPorUsuario(req, res) {
     const { id } = req.params
-    console.log(id)
     const [avaliacoes] = await conexaoDb.query(
         `select avaliacoes.id, comentario, nota, pluginId, plugins.imagem, plugins.titulo, usuarioId
             from avaliacoes inner join plugins 

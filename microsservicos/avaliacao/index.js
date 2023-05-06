@@ -5,7 +5,8 @@ const {
     listarPluginPorId,
     avaliarPlugin,
     deletarPlugin,
-    deletarAvaliacao
+    deletarAvaliacao,
+    _getAvaliacoesPorUsuario
 } = require('./avaliacaoController')
 
 const app = express()
@@ -24,5 +25,6 @@ app.post('/plugins/:id/avaliacao', avaliarPlugin)
 
 app.delete('/plugins/avaliacao/:id', deletarAvaliacao)
 
+app.get('/plugins/avaliacoes/usuario/:id',_getAvaliacoesPorUsuario)
 
 app.listen(4000, () => console.log('Rodando Microsserviço de Avaliação'))

@@ -1,6 +1,9 @@
-const conexaoDb = require('./databaseConnection')
 const { uuid } = require('uuidv4')
+const conexaoDb = require('./databaseConnection')
+
 const { calculaNotaGeral } = require('./utils/calculaNotaGeral')
+const mapeiaUsuarioAvaliacao = require('./utils/mapeiaUsuarioAvaliacao')
+const emitirEvento = require('./utils/emitirEvento')
 
 async function criarPlugin(req, res) {
     const { titulo, descricao, link, imagem } = req.body
@@ -39,18 +42,28 @@ async function listarPluginPorId(req, res) {
         [id]
     )
 
+    if (plugins.length === 0) {
+        return res.status(404).send("Nenhum plugin encontrado com este id")
+    }
+
     const [avaliacoes] = await conexaoDb.query(
         'select * from avaliacoes where avaliacoes.pluginId = ?',
         [id]
     )
 
+    const ids = Array.from(new Set(avaliacoes.map(avaliacao => avaliacao.usuarioId)))
 
-    if (plugins.length === 0) {
-        return res.status(404).send("Nenhum plugin encontrado com este id")
+    if (avaliacoes.length === 0) {
+        plugins[0].notaGeral = "Sem nota ainda :("
     }
+    else {
+        plugins[0].notaGeral = calculaNotaGeral(avaliacoes)
 
-    plugins[0].avaliacoes = avaliacoes
-    plugins[0].notaGeral = calculaNotaGeral(avaliacoes)
+        //consulta o barramento de eventos para pegar dados dos usuarios que avaliaram
+        const usuarios = await emitirEvento('get-usuarios', { ids })
+
+        plugins[0].avaliacoes = mapeiaUsuarioAvaliacao(avaliacoes, usuarios)
+    }
 
     res.json(plugins[0])
 }
@@ -95,8 +108,8 @@ async function avaliarPlugin(req, res) {
     })
 }
 
-function deletarAvaliacao(req,res){
-    const {id} = req.params
+function deletarAvaliacao(req, res) {
+    const { id } = req.params
 
     conexaoDb.query(
         'delete from avaliacoes where avaliacoes.id=?',
@@ -106,6 +119,18 @@ function deletarAvaliacao(req,res){
     return res.status(204).send("Avaliação deletada")
 }
 
+async function _getAvaliacoesPorUsuario(req, res) {
+    const { id } = req.params
+    console.log(id)
+    const [avaliacoes] = await conexaoDb.query(
+        `select avaliacoes.id, comentario, nota, pluginId, plugins.imagem, plugins.titulo, usuarioId
+            from avaliacoes inner join plugins 
+            where usuarioId = ?`,
+        [id]
+    )
+
+    return res.send(avaliacoes)
+}
 
 module.exports = {
     criarPlugin,
@@ -113,5 +138,6 @@ module.exports = {
     listarPluginPorId,
     deletarPlugin,
     avaliarPlugin,
-    deletarAvaliacao
+    deletarAvaliacao,
+    _getAvaliacoesPorUsuario
 }

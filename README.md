@@ -12,4 +12,36 @@
 <p>Guilherme Farias De Oliveira RA: 821224447</p>
 <p>Gustavo do Prado Gabriel RA:821234228</p>
 
-<p>Para rodar o microsserviço de autenticação é preciso acessar a pasta microsserviço e executar npm install, depois npm start.<p>
+<h3>Instalação</h3>
+ <h4>Microsserviços</h4>
+ 
+Com o repositório clonado, execute os scripts de criação dos bancos no mysql.
+
+Adicione um arquivo .env com as configurações na pasta microsserviços:
+
+```
+DB_PORT= porta do banco
+DB_HOST= host do banco
+DB_USER= usuario do banco
+DB_PASSWORD= senha do banco
+
+AVAL_DB_NAME= nome do banco do microsserviço de avaliação
+AUTH_DB_NAME= nome do banco do microsserviço de autenticação
+
+```
+
+Entre na pasta dos seguintes microsserviços e execute <strong>npm install</strong>:
+- Avaliação
+- Autenticação
+- Barramento de Eventos
+
+Após isso, volte para a pasta microsserviços e execute <strong>npm start</strong>
+
+<h4>Frontend</h4>
+
+Caminhe até a pasta frontend e execute:
+
+```
+npm install
+npm start
+```

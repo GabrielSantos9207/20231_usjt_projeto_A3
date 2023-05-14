@@ -1,0 +1,228 @@
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+body{
+  background-image: linear-gradient(to right, rgba(217,80,255,255) , rgba(60,221,250,255));
+
+}
+
+.black{
+  background-color: rgba(137,127,151,255);
+  margin: 0.3%;
+  display: flex;
+  padding: 2%;
+}
+
+button{
+  color: rgb(84, 140, 243);
+}
+
+h1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 200px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h3{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+hr{
+  border-radius: 1px;
+  width: 90%;
+}
+
+p{
+  color: white;
+  text-align: justify;
+  text-justify:inter-word;
+  text-indent: 2em;
+}
+
+a, a:hover, a:visited {
+  color: inherit; 
+  text-decoration: inherit; 
+  align-items: center;
+  justify-content: inherit;
+  display: inherit;
+  width: inherit;
+}
+
+.login {
+  display: flex;
+  width: 100%;
+}
+
+.user {
+  color:rgb(133, 175, 253);
+  border: 2px solid;
+  border-color: rgb(84, 140, 243);
+  background-image: linear-gradient(to right, rgb(104, 122, 151) , rgb(95, 108, 129));
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+  font-size: 150%;
+  padding: 0.8% 0%;
+  cursor: pointer;
+  flex-grow: 1;
+  transition: background-image,color .1s ease-in-out;
+}
+
+.user:hover {
+  border-color: rgb(136, 174, 245);
+  background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(189, 189, 189));
+  color: rgb(125, 166, 243);
+  /*transform: translateY(-5px);*/
+}
+
+.user:active {
+  color: rgb(212, 227, 255);
+  border-color: rgb(84, 140, 243);
+  background-image: linear-gradient(to right, rgb(104, 122, 151) , rgb(95, 108, 129));
+  /*transform: translateY(5px);*/
+}
+
+.description{
+  padding: 0% 1%;
+  margin: 0%;
+}
+
+.plugins{
+  display: flex;
+}
+
+[class^="p-card"] {
+  display: flex;
+  margin: 10px;
+	flex-direction: column;
+	align-items: center;
+  justify-content: center;
+	background-color: rgba(137,127,151,255);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+	border: 0 hidden;
+	border-radius: 15px 15px 15px 15px;
+	z-index: 1;
+	padding: 25px 10px 25px 10px;
+}
+
+[class^="p-card"] > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-img{
+  height: 180px;
+	width: 180px;;
+  
+}
+
+.p-text{
+  padding: 5%;
+}
+
+.footer-text{
+  color: black;
+  font-weight: bold;
+}
+
+#vst-title{
+  width: 400px;
+  padding: 10px;
+  background: linear-gradient(to right, rgba(217,80,255,200) 15%,  rgba(150,150,250,30) 30%, rgba(60,221,250,0) 55%);
+}
+
+#return{
+  width: 350px;
+  padding: 10px;
+  background: linear-gradient(to right, rgba(217,80,255,30) 30%,  rgba(150,150,250,30) 50%, rgba(60,221,250,30) 65%);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  border: 2px solid black;
+}
+
+#return:hover{
+  color: white;
+  border: 2px solid white;
+}
+
+/*Style das estrelas*/
+
+.rating { 
+	border: none;
+	float: left;
+}
+   
+.rating > input { display: none; } 
+
+.rating > label:before { 
+margin: 5px;
+font-size: 1.25em;
+font-family: FontAwesome;
+display: inline-block;
+content: "\f005";
+}
+
+.rating > .half:before { 
+ content: "\f089";
+ position: absolute;
+}
+
+.rating > label { 
+   color: #ddd; 
+   float: right; 
+}
+
+.rating>.zero{
+	margin: 0.3em auto;
+}
+
+.rating>.zero:before{
+	display: none;
+}
+
+.rating > .zero .material-icons {
+    font-size: 30px;
+    min-height: 100%;
+  }
+  
+  .myratings{
+    display: inline-block;
+  }
+  
+  [class^="myratings"] {
+    margin-top: 0.5em;
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 45px;
+    color: green;
+  }
+
+
+/* CSS Magic to Highlight Stars on Hover */
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700;
+}
+
+/*        hover previous stars in list */
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FFED85;
+}

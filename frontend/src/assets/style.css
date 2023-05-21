@@ -7,7 +7,6 @@ body{
 }
 
 .black{
-  background-color: rgba(137,127,151,255);
   margin: 0.3%;
   display: flex;
   padding: 2%;
@@ -70,23 +69,18 @@ a, a:hover, a:visited {
   color:rgb(133, 175, 253);
   border: 2px solid;
   border-color: rgb(84, 140, 243);
-  background-image: linear-gradient(to right, rgb(104, 122, 151) , rgb(95, 108, 129));
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  background: #222;
   justify-content: center;
   align-items: center;
   font-size: 150%;
   padding: 0.8% 0%;
   cursor: pointer;
   flex-grow: 1;
+  color: white;
   transition: background-image,color .1s ease-in-out;
 }
 
-.user:hover {
-  border-color: rgb(136, 174, 245);
-  background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(189, 189, 189));
-  color: rgb(125, 166, 243);
-  /*transform: translateY(-5px);*/
-}
 
 .user:active {
   color: rgb(212, 227, 255);
@@ -101,18 +95,23 @@ a, a:hover, a:visited {
 }
 
 .plugins{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 1rem;
+  flex-wrap: wrap;
+  width:100%
 }
 
 [class^="p-card"] {
   display: flex;
-  margin: 10px;
 	flex-direction: column;
 	align-items: center;
-  justify-content: center;
-	background-color: rgba(137,127,151,255);
+  justify-content: space-between;
+	background-color: #222;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
 	border: 0 hidden;
+  cursor: pointer;
+  color: white;
 	border-radius: 15px 15px 15px 15px;
 	z-index: 1;
 	padding: 25px 10px 25px 10px;
@@ -121,11 +120,12 @@ a, a:hover, a:visited {
 [class^="p-card"] > * {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .p-img{
   height: 180px;
-	width: 180px;;
+	width: 100%;
   
 }
 
@@ -225,4 +225,39 @@ content: "\f005";
 .rating > label:hover ~ input:checked ~ label,
 .rating > input:checked ~ label:hover ~ label {
   color: #FFED85;
+}
+
+.plugin-container{
+  display: flex;
+  box-shadow:  0 8px 16px 0 rgba(0,0,0,0.4);
+	padding: 25px 10px 25px 25px;
+  border-radius: 15px;
+  background: #222;
+  justify-content: space-between;
+  width:100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.avaliacao{
+  box-shadow:  0 8px 16px 0 rgba(0,0,0,0.4);
+  padding:0.5rem 1rem;
+  width: 70%;
+  border-radius: 4px;
+  align-self: center;
+  background: #222;
+}
+.img-fluid{
+  border: 3px solid;
+  box-shadow:  0 8px 16px 0 rgba(0,0,0,0.4);
+
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #21d4fd, #b721ff);
+}
+.estrela{
+  font-size: 25px;
+  cursor: pointer;
+  color: rgba(146, 144, 15, 0.603);
+  margin-right: 0.5rem;
 }

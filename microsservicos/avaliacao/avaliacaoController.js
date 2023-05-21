@@ -61,7 +61,6 @@ async function listarPluginPorId(req, res) {
 
         //consulta o barramento de eventos para pegar dados dos usuarios que avaliaram
         const usuarios = await emitirEvento('get-usuarios', { ids })
-
         plugins[0].avaliacoes = mapeiaUsuarioAvaliacao(avaliacoes, usuarios)
     }
 

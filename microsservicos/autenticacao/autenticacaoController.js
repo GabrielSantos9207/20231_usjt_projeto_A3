@@ -41,7 +41,11 @@ async function login(req, res) {
 
     //caso a resposta seja maior que zero retorna
     if (rows.length > 0) {
-        res.send('Você está logado')
+        res.send({
+            nome:rows[0].nome,
+            email:rows[0].email,
+            id:rows[0].id
+        })
 
     }
     else {

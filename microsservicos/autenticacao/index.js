@@ -20,4 +20,4 @@ app.get('/autenticacao/usuarios', _getUsuarios)
 
 app.get('/autenticacao/usuarios/:id', getUsuarioPorId)
 
-app.listen(3333, () => console.log("Rodando Microsserviço de Autenticação"))
+app.listen(8080, () => console.log("Rodando Microsserviço de Autenticação"))

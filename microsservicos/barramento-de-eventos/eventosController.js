@@ -8,7 +8,7 @@ const eventos = {
 async function getUsuarios(dados) {
     const { ids } = dados
     //pega os usuarios do autenticacao baseados nos ids passados e retornar
-    const { data } = await axios.get(`http://localhost:3333/autenticacao/usuarios?ids=${ids}`)
+    const { data } = await axios.get(`http://localhost:8080/autenticacao/usuarios?ids=${ids}`)
 
     return data
 }

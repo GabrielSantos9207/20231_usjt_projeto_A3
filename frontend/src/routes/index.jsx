@@ -11,7 +11,7 @@ export const AppRouter = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/plugin" element= {<PluginPage /> } />
+        <Route path="/plugin/:id" element= {<PluginPage /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/plugins" element={<ListaDePlugins />} />

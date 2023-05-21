@@ -13,9 +13,12 @@ export const Login = () => {
   async function logar(e){
     e.preventDefault()
     try {
-      await login(email,password)
+     const user =  await login(email,password)
+      localStorage.setItem('user-email',user.email)
+      localStorage.setItem('user-nome',user.nome)
+      localStorage.setItem('user-id',user.id)
       alert('Bem vindo')
-      navigate('/plugins')
+      navigate('/')
     } catch (error) {
       alert('Email ou senha incorretos')
       

@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const {
     criarPlugin,
     listarPlugins,
@@ -10,6 +11,7 @@ const {
 } = require('./avaliacaoController')
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 

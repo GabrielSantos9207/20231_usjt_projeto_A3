@@ -55,27 +55,32 @@ const PluginPage = () => {
             <img src={plugin.imagem} alt={plugin.titulo} className='img-fluid' ></img>
             <div className='d-flex align-items-center my-2 gap-4'>
               <h2 className='text-white'>{plugin.titulo}</h2>
-              <span className='fs-3 text-warning'>{plugin.notaGeral}
-                <i class="bi bi-star-fill"></i>
-              </span>
+              <div className='fs-3 text-warning d-flex align-items-center'>
+                <span className="mx-2">{plugin.notaGeral}</span>
+                <i className="bi bi-star-fill"></i>
+              </div>
             </div>
             <span class="p-description my-2">{plugin.descricao}</span>
-            <span>Link para baixar: {plugin.link}</span>
+           <strong> Link para baixar </strong>
+           <a className='w-100' style={{color:'#21d4fd'}} href={plugin.link}>{plugin.link}</a>
           </div>
-          <div className='d-flex flex-column align-items-center w-75'>
+          <div className='d-flex flex-column align-items-center w-100'>
             {usuarioLogado &&
-              <form onSubmit={handleAvaliarPlugin}>
+              <form className='w-50' onSubmit={handleAvaliarPlugin}>
                 <Estrela nota={nota} setNota={setNota} />
-                <input
+                <textarea
                   onChange={({ target }) => setComentario(target.value)}
-                  className='w-75 my-2 form-control'
+                  className='w-100 my-2 form-control'
                   type="text" placeholder={'Comente sobre o ' + plugin.titulo} />
                 <button type='submit' disabled={comentario.trim() === ''}
-                  className='btn w-75 btn-info text-white my-2' >Enviar</button>
+                  className='btn w-100  text-white my-2 font-weight-bolder fs-5' 
+                  style={{background:'#21d4fd',fontWeight:'bolder'}} >
+                    Enviar
+                  </button>
               </form>
             }
             <h4 className='my-4 text-white'>Comentários</h4>
-            <div className='w-100 gap-2 d-flex flex-column justify-content-between' style={{ maxHeight: '300px', overflowY: 'scroll' }}>
+            <div className='py-4 w-100 gap-2 d-flex flex-column justify-content-between' style={{ maxHeight: '300px', overflowY: 'scroll' }}>
               {plugin.avaliacoes?.map(avaliacao =>
                 <div className='row gap-2 avaliacao align-items-center' key={avaliacao.id}>
                   <div className='d-flex col flex-column text-white'>
